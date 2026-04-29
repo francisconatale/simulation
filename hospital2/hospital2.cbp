@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="hospital2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="bin/g_hospital2" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall -O1" />
+			<Add directory="../../include" />
+		</Compiler>
+		<Linker>
+			<Add library="C:\Users\franc\Downloads\eosim1.1.1-Proyecto_137813902591\eosim1.1.1\lib\libeosim1_1_1.a" />
+		</Linker>
+		<Unit filename="hospitalsimple.cpp" />
+		<Unit filename="hospitalsimple.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="paciente.cpp" />
+		<Unit filename="paciente.hpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
