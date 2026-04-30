@@ -5,15 +5,15 @@
 
 int main () {
     using namespace eosim::core;
-    
+
     HospitalSimple model;
     Experiment exp;
-    
+
     model.connectToExp(&exp);
     exp.setSeed(12345);
-    
+
     std::cout << "Simulando flujo de pacientes por 300 dias...\n";
-    exp.run(300.0); // Simular casi un año
+    exp.run(300.0);
     std::cout << "Simulacion finalizada.\n\n";
 
     std::cout << "=== ESTADISTICAS DE COLAS (Largo Medio) ===\n";

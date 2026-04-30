@@ -5,21 +5,17 @@
 
 using namespace eosim::core;
 
-// Generador de nuevas pacientes
 GestorSemanal::GestorSemanal(Model& model) : BEvent(EV_GESTOR_SEMANAL, model) {}
 
 void GestorSemanal::eventRoutine(Entity* who) {
     HospitalSimple& h = dynamic_cast<HospitalSimple&>(owner);
 
     Embarazada* e = new Embarazada(12);
-    // Solo imprimimos los ingresos de nuevas pacientes para no saturar el log
-    // std::cout << "Nueva paciente T=" << h.getSimTime() << "\n";
     h.schedule(0.0, e, EV_ARRIBO_PACIENTE);
 
     h.schedule(ARRIBO_NUEVAS, who, EV_GESTOR_SEMANAL);
 }
 
-// Arribo para atención
 ArriboPaciente::ArriboPaciente(Model& model) : BEvent(EV_ARRIBO_PACIENTE, model) {}
 
 void ArriboPaciente::eventRoutine(Entity* who) {
@@ -38,7 +34,7 @@ void ArriboPaciente::eventRoutine(Entity* who) {
 
 SalidaEnfermera::SalidaEnfermera(Model& model) : BEvent(EV_SALIDA_ENFERMERA, model) {}
 
-void SalidaEnfermera::eventRoutine(Entity* who) {
+void SalidaEnfermera::eventRoutine(Entity* who){
     HospitalSimple& h = dynamic_cast<HospitalSimple&>(owner);
     h.enfermera.returnBin(1);
 
@@ -71,7 +67,7 @@ void SalidaEnfermera::eventRoutine(Entity* who) {
             who->setClock(h.getSimTime());
             h.colaPartera.push(who);
         }
-    } else { // CONJUNTA
+    } else {
         if (h.medico.isAvailable(1) && h.partera.isAvailable(1)) {
             h.medico.acquire(1);
             h.partera.acquire(1);
