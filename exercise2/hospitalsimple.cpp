@@ -21,6 +21,7 @@ HospitalSimple::HospitalSimple(unsigned int cantCamas, double tasaArribos, doubl
                                 robaCamas(MT19937, 120.0, 4.0),
 								camas(cantCamas, cantCamas),
 								tEspera("Tiempos de Espera"),
+								tUso("Tiempo de uso"),
 								lCola("Largos Medios de Colas", *this) {}
 
 HospitalSimple::~HospitalSimple() {}

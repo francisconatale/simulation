@@ -119,3 +119,23 @@
 	"constantes.hpp"
 	<iostream>
 
+1777503838 source:c:\users\franc\downloads\eosim1.1.1-proyecto_137813902591\eosim1.1.1\demos\exercise1\hospitalsimple.cpp
+	"hospitalsimple.hpp"
+	"constantes.hpp"
+
+1777503838 c:\users\franc\downloads\eosim1.1.1-proyecto_137813902591\eosim1.1.1\demos\exercise1\hospitalsimple.hpp
+	<eosim/core/model.hpp>
+	<eosim/utils/entityqueuefifo.hpp>
+	<eosim/core/renewable.hpp>
+	<eosim/statics/observation.hpp>
+	<eosim/statics/timeweighted.hpp>
+	<eosim/dist/uniformdist.hpp>
+	"paciente.hpp"
+
+1777503205 c:\users\franc\downloads\eosim1.1.1-proyecto_137813902591\eosim1.1.1\demos\exercise1\paciente.hpp
+	<eosim/core/bevent.hpp>
+	<eosim/core/entity.hpp>
+	<string>
+
+1777503838 c:\users\franc\downloads\eosim1.1.1-proyecto_137813902591\eosim1.1.1\demos\exercise1\constantes.hpp
+

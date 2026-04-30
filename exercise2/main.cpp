@@ -23,7 +23,12 @@ int main () {
 		m.lCola.print(10);
 		std::cout << '\n';
 		m.tEspera.print(52);
-		std::cin >> s;
+		m.tUso.print(10);
+		if(m.tUso.getMean()> m.tEspera.getMean()){
+            std::cout << "el sistema es fluido" << "/n";
+		} else {
+		    std::cout << "el sistema esta saturado" << "/n";
+		}
     }
 }
 

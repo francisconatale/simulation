@@ -49,7 +49,9 @@ void PacienteFeeder::eventRoutine(Entity* who) {
 		h.camas.acquire(1);
 		std::cout << "un paciente fue aceptado en una cama " << h.getSimTime() << "\n";
 		h.tEspera.log(h.getSimTime() - who->getClock());
-		h.schedule(h.estadia.sample(), who, salidaP);
+		double arribo = h.estadia.sample();
+		h.tUso.log(arribo);
+		h.schedule(arribo, who, salidaP);
 	}
 	else {
         // se acumulan datos en los histogramas
@@ -67,10 +69,13 @@ SalidaPaciente::SalidaPaciente(Model& model): BEvent(salidaP, model) {}
 SalidaPaciente::~SalidaPaciente() {}
 
 void SalidaPaciente::eventRoutine(Entity* who) {
+
 	// se informa la salida de un paciente
 	std::cout << "un paciente se retira en " << who->getClock() << "\n";
 	// se castea owner a un HospitalSimple
 	HospitalSimple& h = dynamic_cast<HospitalSimple&>(owner);
+	   std::cout << "getClock=" << who->getClock()
+              << " simTime=" << h.getSimTime() << "\n";
 	// se retorna la cama que el paciente ocupaba
 	h.camas.returnBin(1);
 	if (!h.cola.empty()) {
@@ -79,7 +84,7 @@ void SalidaPaciente::eventRoutine(Entity* who) {
         h.lCola.log(h.cola.size());
 		Entity* ent = h.cola.pop();
 		h.tEspera.log(h.getSimTime() - ent->getClock());
-		h.schedule(h.estadia.sample(), ent, salidaP);
+		h.schedule(h.estadia.sample(), ent, salidaP); // aca le cambia el tiempo al who
 	}
 	// se elimina  al paciente del sistema
 	delete who;
